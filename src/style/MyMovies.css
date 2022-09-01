@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 .containerCard{
     /* width: 250px; */
     /* height: 350px; */
@@ -6,11 +8,26 @@
     margin: 15px
 }
 
-.image{
-    /* width: auto; */
-    /* height: 18rem; */
+/* .image{
+    width: auto;
+    height: 18rem;
+} */
+
+.title {
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;;
 }
 
-.Card.Text {
-    font-size: 3rem;
+.card {
+    border-width: none;
+}
+
+.image{
+    transition: transform .2s;
+}
+
+.image:hover{
+    transform: scale(1.1);
+    border-radius: 1rem;
+    border-color: red;
 }

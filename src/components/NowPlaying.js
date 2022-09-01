@@ -1,23 +1,37 @@
 import React, {Component} from "react";
 import {Button, Card} from 'react-bootstrap';
-import '../style/MyMovies.css';
+import { withRouter } from '../withRouter';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../style/MyMovies.css';
 
-export default class NowPlaying extends Component {
+
+class NowPlaying extends Component {
+
+    nextPage() {
+        this.props.navigate("/details");
+    }
+
     render() {
         return (
-            // <div className="containerCard">
-            // <img className="image" src={this.props.src} />
-            // <p>{this.props.title}</p>
-            // </div>
+           
+            // <Card style={{ width: '18rem' }} className= "containerCard">
+            //     <Card.Img className='image mt-3' variant="top" src={this.props.src} />
+            //     <Card.Body>
+            //         <Card.Text className="title text-center">{this.props.title}</Card.Text>
+            //         <Button variant="success" className="">Favorites</Button>
+            //     </Card.Body>
+            // </Card>
 
-            <Card style={{ width: '18rem' }} className= "containerCard">
-                <Card.Img className='image mt-3' variant="top" src={this.props.src} />
-                <Card.Body>
-                    <Card.Text>{this.props.title}</Card.Text>
-                    <Button variant="success">Favorites</Button>
-                </Card.Body>
-            </Card>
+            <Card style={{ width: '18rem' }} className="card">
+            <Card.Img variant="top" className="rounded shadow p-3 image" src={this.props.src} />
+            <Card.Body>
+            <Card.Text  className="title text-center">{this.props.title}</Card.Text>
+            <Button variant="success" className="justify-content-center" onClick={(value) => this.nextPage(value)}>Favorites</Button>
+            </Card.Body>
+          </Card>
+
+//
+
 
             // <div className="card" style="width: 18rem;">
             //     <img src={this.props.src} className="card-img-top image" />
@@ -31,4 +45,7 @@ export default class NowPlaying extends Component {
         
     }
 }
+
+export default withRouter(NowPlaying);
+//export default(NowPlaying);
 
