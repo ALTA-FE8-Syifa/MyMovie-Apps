@@ -59,8 +59,8 @@
 import {Nav, Navbar, Container, Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react'
-import NowPlaying from './NowPlaying';
-import Favorite from './Favorite';
+// import NowPlaying from './NowPlaying';
+// import Favorite from './Favorite';
 
 
 export default class NavbarComp extends Component {

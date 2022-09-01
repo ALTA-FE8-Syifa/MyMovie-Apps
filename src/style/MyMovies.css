@@ -1,5 +1,16 @@
-.image {
-    height: 500px;
+.containerCard{
+    /* width: 250px; */
+    /* height: 350px; */
+    /* border-width: 1;
+    border-style: solid; */
+    margin: 15px
 }
 
-/* css blm bisa berubah */
+.image{
+    /* width: auto; */
+    /* height: 18rem; */
+}
+
+.Card.Text {
+    font-size: 3rem;
+}
