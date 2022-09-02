@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import NavbarComp from '../components/NavbarComp';
 import CardMovieComp from '../components/CardMovieComp';
-// import Details from "./pages/Details"
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {withRouter} from "../withRouter";
 import axios from "axios";
-//import { isAccordionItemSelected } from 'react-bootstrap/esm/AccordionContext';
-
 
 const baseUrl = "https://api.themoviedb.org/3/";
 const urlHeadline = baseUrl + "movie/" + "now_playing?" + `api_key=${process.env.REACT_APP_API_KEY}&` + "language=en-US&" + "page=1"

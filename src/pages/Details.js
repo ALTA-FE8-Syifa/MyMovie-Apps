@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import NavbarComp from '../components/NavbarComp';
 import {Table} from 'react-bootstrap';
-// import CardMovieComp from '../components/CardMovieComp';
-// import Details from "./pages/Details"
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/MyMovies.css'
 import {withRouter} from "../withRouter";
@@ -21,7 +18,6 @@ class Details extends Component {
         <NavbarComp/>
         </div>
         <div className = 'container-fluid container-detail'>
-          {/* <div className='layer-white'></div> */}
         <img src={imageUrl +  this.props.location.state.backdrop_path} className="img-fluid"/>
           <div className = "row d-flex justify-content-center" style={{ paddingTop: '4rem', paddingBottom:'4rem'}} >
           <div className = "col-xl-4 col-md-6 col-8"> 
