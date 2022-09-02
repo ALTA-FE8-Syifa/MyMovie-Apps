@@ -1,16 +1,11 @@
 import React, {Component} from "react";
 import {Button, Card} from 'react-bootstrap';
-import { withRouter } from '../withRouter';
+// import { withRouter } from '../withRouter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/MyMovies.css';
 
 
-class NowPlaying extends Component {
-
-    nextPage() {
-        this.props.navigate("/details");
-    }
-
+export default class CardMovieComp extends Component {
     render() {
         return (
            
@@ -23,14 +18,12 @@ class NowPlaying extends Component {
             // </Card>
 
             <Card style={{ width: '18rem' }} className="card">
-            <Card.Img variant="top" className="rounded shadow p-3 image" src={this.props.src} />
-            <Card.Body>
-            <Card.Text  className="title text-center">{this.props.title}</Card.Text>
-            <Button variant="success" className="justify-content-center" onClick={(value) => this.nextPage(value)}>Favorites</Button>
+            <Card.Img variant="top" className="rounded shadow p-3 image" src={this.props.src}  />
+            <Card.Body className="text-center">
+            <Card.Text  className="title" onClick={this.props.onClick}>{this.props.title}</Card.Text>
+            <Button variant="success"  >Favorites</Button>
             </Card.Body>
           </Card>
-
-//
 
 
             // <div className="card" style="width: 18rem;">
@@ -46,6 +39,6 @@ class NowPlaying extends Component {
     }
 }
 
-export default withRouter(NowPlaying);
+//export default withRouter(CardMovieComp);
 //export default(NowPlaying);
 
