@@ -1,40 +1,35 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import NavbarComp from '../components/NavbarComp';
 import CardMovieComp from '../components/CardMovieComp';
-// import Details from "./pages/Details"
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {withRouter} from "../withRouter";
 import axios from "axios";
-//import { isAccordionItemSelected } from 'react-bootstrap/esm/AccordionContext';
 
 
 const baseUrl = "https://api.themoviedb.org/3/";
 const urlHeadline = baseUrl + "movie/" + "now_playing?" + `api_key=${process.env.REACT_APP_API_KEY}&` + "language=en-US&" + "page=1"
 
 
-class NowPlaying extends Component {
-    state = {
-        listNowPlaying: [],
-      };
+const NowPlaying = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  componentDidMount() {
-    const self = this;
-    axios
-      .get(urlHeadline)
-      .then(function(response) {
-        console.log(response.data);
-        self.setState({
-          listNowPlaying: response.data.results,
-        });
-      })
-      .catch(function(error) {
-        alert(error);
-      });
-  }
+  const [listplaying, setListplaying ] = useState([]);
 
-  handleDetail(item) {
-    this.props.navigate("/details", {
+  const getListplaying = async () => {
+    await axios
+    .get(urlHeadline)
+    .then((response) => {
+      setListplaying(response.data.results);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  };
+
+  const handleClick = (item) => {
+    console.log(item.original_title);
+    navigate(`/details/${item.original_title}`, {
       state: {
         image: item.poster_path,
         title: item.original_title,
@@ -46,27 +41,28 @@ class NowPlaying extends Component {
         backdrop_path: item.backdrop_path,
       },
     });
-  }
-  render() {
-    const { listNowPlaying } = this.state;
-    return (
+  };
+
+  useEffect(() => {
+    getListplaying();
+  }, []);
+
+  return (
+    <div>
       <div>
-        <div>
         <NavbarComp/>
-        </div>
-        <div className = 'container-fluid'>
-        <div className = "row justify-content-around p-3"> 
-          {listNowPlaying.map((item) => {
-            return (
-              <CardMovieComp src={"https://image.tmdb.org/t/p/original/" + [item.poster_path]} title={item.title} onClick={() => this.handleDetail(item)}/>
-            );
-          })}
-        </div>
-        </div>
-        
       </div>
-    )
-  }
+      <div className = 'container-fluid'>
+        <div className = "row justify-content-around p-3"> 
+           {listplaying.map((item) => {
+            return (
+              <CardMovieComp src={"https://image.tmdb.org/t/p/original/" + [item.poster_path]} title={item.title} onClick={() => handleClick(item)}/>
+            );
+           })}
+        </div>
+      </div>
+    </div>
+  )
 }
 
-export default withRouter(NowPlaying);
+export default NowPlaying

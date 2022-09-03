@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
-// import NavbarComp from './components/NavbarComp';
-// import CardMovieComp from './components/CardMovieComp';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NowPlaying from './pages/NowPlaying';
-import Details from "./pages/Details"
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import Details from './pages/Details';
 
 
-export default class App extends Component {
-  render() {
-    return(
+function App() {
+  return (
     <BrowserRouter>
-          <Routes>
-            <Route exact path="/" element={<NowPlaying/>} />
-            <Route path="/details" element={<Details/>} />
-          </Routes>
-      </BrowserRouter>
-    )
-  }
+      <Routes>
+        <Route exact path="/" element={<NowPlaying/>} />
+        <Route path="/details/:id" element={<Details/>} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
+export default App
