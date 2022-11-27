@@ -1,5 +1,43 @@
-.image {
-    height: 500px;
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+.containerCard{
+    margin: 15px
 }
 
-/* css blm bisa berubah */
+.title {
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;;
+}
+
+.card {
+    border-width: none !important;
+}
+
+.image{
+    transition: transform .2s;
+}
+
+.image:hover{
+    transform: scale(1.07);
+    border-radius: 1rem;
+    background-color: rgba(20, 108, 67, 0.945);
+}
+
+/* .image:hover .playLogo{display: block;}
+.playLogo {
+    position: absolute;
+    display: none;
+    z-index: 100;
+}
+  */
+
+.container-detail {
+    background-color: rgba(250, 250, 250, 0.822);
+}
+
+
+.img-fluid{
+    position: fixed;
+    z-index: -1;
+}
+
